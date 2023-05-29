@@ -1,0 +1,40 @@
+<mat-form-field class="w-full">
+  <mat-label>{{ label }}</mat-label>
+  <ng-container [ngSwitch]="inputType">
+    <ng-container *ngSwitchCase="UiInputInputType.INPUT">
+      <ng-container [ngSwitch]="formatType">
+        <ng-container *ngSwitchCase="UiInputFormatType.TEXT">
+          <input
+            matInput
+            #element
+            [formControl]="control"
+            [placeholder]="placeholder"
+            [value]="inputText"
+          />
+        </ng-container>
+        <ng-container *ngSwitchCase="UiInputFormatType.NUMBER">
+          <input
+            matInput
+            #element
+            [formControl]="control"
+            [placeholder]="placeholder"
+            [value]="inputText"
+            type="number"
+          />
+        </ng-container>
+      </ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="UiInputInputType.TEXTAREA">
+      <textarea
+        matInput
+        #element
+        [formControl]="control"
+        cdkTextareaAutosize
+        #autosize="cdkTextareaAutosize"
+        cdkAutosizeMinRows="1"
+        cdkAutosizeMaxRows="10"
+      ></textarea>
+    </ng-container>
+  </ng-container>
+  <mat-error>{{ errorMessage }}</mat-error>
+</mat-form-field>

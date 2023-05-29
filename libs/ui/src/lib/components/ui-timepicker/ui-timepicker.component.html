@@ -1,0 +1,13 @@
+<mat-form-field class="w-full">
+  <mat-label>{{ label }}</mat-label>
+  <input
+    matInput
+    #element
+    maxlength="5"
+    [formControl]="control"
+    [value]="time"
+    (click)="element.select()"
+  />
+  <mat-hint>Použi formát HH:mm</mat-hint>
+  <mat-error>{{ errorMessage }}</mat-error>
+</mat-form-field>

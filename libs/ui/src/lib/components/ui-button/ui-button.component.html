@@ -1,0 +1,64 @@
+<button class="flex" (click)="buttonClick.emit()" [disabled]="disabled">
+  <ng-container [ngSwitch]="buttonType">
+    <div *ngSwitchCase="UiButtonType.BASIC">
+      <ng-container [ngSwitch]="basicButtonType">
+        <div
+          *ngSwitchCase="UiBasicButtonType.FILL"
+          [ngClass]="{
+            'bg-secondary-darkGrey': buttonColor === UiButtonColor.BLACK,
+            'bg-gradient-to-r from-secondary-pink2 to-secondary-pink':
+              buttonColor === UiButtonColor.PINK
+          }"
+          class="flex items-center gap-2 rounded-lg px-4 py-2"
+        >
+          <ui-icon
+            *ngIf="icon"
+            [ngClass]="{ 'invert-[.85]': disabled }"
+            [path]="icon"
+            [size]="iconSize"
+          ></ui-icon>
+          <p class="text-primary-white">{{ buttonText }}</p>
+        </div>
+        <div
+          *ngSwitchCase="UiBasicButtonType.OUTLINE"
+          [ngClass]="{
+            'border-secondary-pink2': buttonColor === UiButtonColor.PINK,
+            'border-secondary-darkGrey': buttonColor === UiButtonColor.BLACK
+          }"
+          class="flex border bg-primary-white items-center gap-2 rounded-lg px-4 py-2"
+        >
+          <ui-icon
+            *ngIf="icon"
+            [ngClass]="{ 'invert-[.85]': disabled }"
+            [path]="icon"
+            [size]="iconSize"
+          ></ui-icon>
+          <p
+            [ngClass]="{
+              'text-secondary-pink': buttonColor === UiButtonColor.PINK,
+              'text-secondary-darkGrey': buttonColor === UiButtonColor.BLACK
+            }"
+          >
+            {{ buttonText }}
+          </p>
+        </div>
+      </ng-container>
+    </div>
+
+    <div
+      *ngSwitchCase="UiButtonType.AUTH"
+      class="flex items-center gap-2 rounded-lg shadow-md border-b border-b-primary-blue px-4 py-2"
+    >
+      <img src="assets/google.svg" class="w-8 h-8" />
+      <p>{{ buttonText }}</p>
+    </div>
+
+    <ng-container *ngSwitchCase="UiButtonType.SMALL">
+      <p class="text-primary-blue font-semibold">{{ buttonText }}</p>
+    </ng-container>
+
+    <div *ngSwitchCase="UiButtonType.ICON">
+      <ui-icon *ngIf="icon" [path]="icon" [size]="iconSize"></ui-icon>
+    </div>
+  </ng-container>
+</button>
