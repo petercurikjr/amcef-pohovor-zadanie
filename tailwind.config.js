@@ -12,8 +12,8 @@ module.exports = {
     fontFamily: {
       // This will be applied by default
       sans: 'Quicksand, sans-serif',
-      // State explicitly to apply (class="font-appTitle")
-      appTitle: 'Pushster, sans-serif',
+      // State explicitly to apply (class="font-title")
+      title: 'Montserrat, sans-serif',
     },
     colors: {
       primary: {
