@@ -1,9 +1,9 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { CoreContainer, ITodoList } from '@todoee/core';
+import { CoreContainer, ITodoList, Routes } from '@todoee/core';
 import { Icons, UiButtonType } from '@todoee/ui';
 import { User } from 'firebase/auth';
-import { HomeCreateTodolistModalComponent } from './create-todolist-modal/home-create-todolist-modal.component';
+import { HomeCreateTodoListModalComponent } from './create-todo-list-modal/home-create-todo-list-modal.component';
 
 @Component({
   selector: 'todoee-home-component',
@@ -45,6 +45,10 @@ export class HomeComponent extends CoreContainer implements OnInit {
   }
 
   createTodoList(): void {
-    this.md.open(HomeCreateTodolistModalComponent);
+    this.md.open(HomeCreateTodoListModalComponent);
+  }
+
+  createTodo(listId: string): void {
+    this.navigateTo(Routes.home.createTodoItem, { listId: listId });
   }
 }

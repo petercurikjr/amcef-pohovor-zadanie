@@ -1,3 +1,6 @@
 export const Routes = {
-  home: '/home',
+  home: {
+    base: '/home',
+    createTodoItem: '/home/create-todo-item',
+  },
 };

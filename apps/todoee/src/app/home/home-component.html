@@ -41,6 +41,11 @@
     class="border border-secondary-lightGrey rounded-md shadow-md p-4"
     *ngFor="let list of todoLists"
   >
+    <ui-icon
+      class="cursor-pointer"
+      [path]="Icons.add.circleDark"
+      (click)="createTodo(list.id)"
+    ></ui-icon>
     <p class="font-medium">{{ list.name }}</p>
   </div>
 </div>

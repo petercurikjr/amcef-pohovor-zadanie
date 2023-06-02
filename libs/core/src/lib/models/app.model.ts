@@ -21,6 +21,7 @@ export interface ITodoList {
 
 export interface ITodo {
   id: string;
+  listId: string;
   name: string;
   description: string;
   due: Timestamp;

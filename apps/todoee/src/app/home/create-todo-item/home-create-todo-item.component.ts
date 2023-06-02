@@ -1,23 +1,20 @@
 import { Component } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
-import { CoreContainer, ICreateTodoListForm, ITodoList } from '@todoee/core';
+import { CoreContainer, ICreateTodoItemForm, ITodoList } from '@todoee/core';
 import { UiBasicButtonType, UiButtonColor } from '@todoee/ui';
 import { v4 as uuidv4 } from 'uuid';
 
 @Component({
-  templateUrl: './home-create-todolist-modal.component.html',
+  templateUrl: './home-create-todo-item.component.html',
 })
-export class HomeCreateTodolistModalComponent extends CoreContainer {
+export class HomeCreateTodoItemComponent extends CoreContainer {
   readonly UiButtonColor = UiButtonColor;
   readonly UiBasicButtonType = UiBasicButtonType;
 
   isLoading = false;
-  form: FormGroup<ICreateTodoListForm>;
+  form: FormGroup<ICreateTodoItemForm>;
 
-  constructor(
-    protected dialogRef: MatDialogRef<HomeCreateTodolistModalComponent>
-  ) {
+  constructor() {
     super();
     this.initForm();
   }
@@ -25,6 +22,9 @@ export class HomeCreateTodolistModalComponent extends CoreContainer {
   private initForm(): void {
     this.form = this.fb.group({
       name: ['', Validators.required],
+      description: [''],
+      dueDate: [],
+      dueTime: [],
     });
   }
 
@@ -36,6 +36,5 @@ export class HomeCreateTodolistModalComponent extends CoreContainer {
       name: this.form.value.name,
       todos: [],
     };
-    this.facade.createTodoList(request, () => this.dialogRef.close());
   }
 }

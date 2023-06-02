@@ -8,11 +8,17 @@ import { UiModule } from '@todoee/ui';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
-import { HomeCreateTodolistModalComponent } from './home/create-todolist-modal/home-create-todolist-modal.component';
+import { HomeCreateTodoListModalComponent } from './home/create-todo-list-modal/home-create-todo-list-modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeCreateTodoItemComponent } from './home/create-todo-item/home-create-todo-item.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HomeCreateTodolistModalComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    HomeCreateTodoListModalComponent,
+    HomeCreateTodoItemComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
