@@ -8,5 +8,5 @@ export interface ICreateTodoItemForm {
   name: FormControl<string>;
   description: FormControl<string>;
   dueDate: FormControl<Date>;
-  dueTime: FormControl<Date>;
+  dueTime: FormControl<string>;
 }

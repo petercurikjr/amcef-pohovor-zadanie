@@ -16,10 +16,10 @@ export enum DateFormat {
 export interface ITodoList {
   id: string;
   name: string;
-  todos: ITodo[];
+  todos: ITodoItem[];
 }
 
-export interface ITodo {
+export interface ITodoItem {
   id: string;
   listId: string;
   name: string;

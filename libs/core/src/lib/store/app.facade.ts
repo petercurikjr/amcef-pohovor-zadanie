@@ -4,7 +4,7 @@ import { AppState } from './app.reducer';
 import * as selectors from './app.selectors';
 import * as actions from './app.actions';
 import { User } from '@angular/fire/auth';
-import { ITodoList } from '../models/app.model';
+import { ITodoItem, ITodoList } from '../models/app.model';
 
 @Injectable()
 export class AppFacade {
@@ -34,6 +34,15 @@ export class AppFacade {
   createTodoList(todoList: ITodoList, onSuccess: () => void): void {
     this.store.dispatch(
       actions.todoCreateTodoListRequestAction({ todoList, onSuccess })
+    );
+  }
+
+  addTodoItemToParentList(parentList: ITodoList, onSuccess: () => void): void {
+    this.store.dispatch(
+      actions.todoAddTodoItemToParentListRequestAction({
+        parentList,
+        onSuccess,
+      })
     );
   }
 }

@@ -1,6 +1,6 @@
 import { Directive, OnDestroy, inject } from '@angular/core';
 import { Subscription } from 'rxjs/internal/Subscription';
-import { Params, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { AppFacade } from '../store/app.facade';
 
@@ -8,6 +8,7 @@ import { AppFacade } from '../store/app.facade';
 export class CoreContainer implements OnDestroy {
   readonly router: Router = inject(Router);
   readonly fb: FormBuilder = inject(FormBuilder);
+  readonly activatedRoute: ActivatedRoute = inject(ActivatedRoute);
 
   readonly facade: AppFacade = inject(AppFacade);
 

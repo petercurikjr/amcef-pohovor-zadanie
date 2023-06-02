@@ -39,3 +39,12 @@ export const todoCreateTodoListRequestAction = createAction(
 export const todoCreateTodoListResponseAction = createAction(
   '[TODO] create todo list response action'
 );
+
+export const todoAddTodoItemToParentListRequestAction = createAction(
+  '[TODO] add todo item to parent list request action',
+  props<{ parentList: ITodoList; onSuccess: () => void }>()
+);
+
+export const todoAddTodoItemToParentListResponseAction = createAction(
+  '[TODO] add todo item to parent list response action'
+);

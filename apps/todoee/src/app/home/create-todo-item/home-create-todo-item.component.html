@@ -1,1 +1,20 @@
-<p>here</p>
+<p class="text-h4 mb-4">Vytvoriť TODO položku</p>
+<form *ngIf="parentList" class="flex flex-col gap-2" [formGroup]="form">
+  <ui-input formControlName="name" label="Názov"></ui-input>
+  <ui-input
+    formControlName="description"
+    [inputType]="UiInputInputType.TEXTAREA"
+    label="Popis"
+  ></ui-input>
+  <p>Deadline:</p>
+  <ui-datepicker formControlName="dueDate" label="Dátum"></ui-datepicker>
+  <ui-timepicker formControlName="dueTime" label="Čas"></ui-timepicker>
+
+  <ui-button
+    class="mt-4"
+    buttonText="Vytvoriť"
+    (buttonClick)="createTodoItem()"
+  ></ui-button>
+</form>
+
+<ui-loading *ngIf="isLoading" [whitenedBackground]="true"></ui-loading>

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AppService } from '../services/app.service';
 import * as actions from './app.actions';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { map, mergeMap, take } from 'rxjs';
+import { map, mergeMap } from 'rxjs';
 
 @Injectable()
 export class AppEffects {
@@ -57,6 +57,20 @@ export class AppEffects {
           map(() => {
             if (onSuccess) onSuccess();
             return actions.todoCreateTodoListResponseAction();
+          })
+        )
+      )
+    )
+  );
+
+  addTodoItemToParentList$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(actions.todoAddTodoItemToParentListRequestAction),
+      mergeMap(({ parentList, onSuccess }) =>
+        this.appService.addTodoItemToParentList(parentList).pipe(
+          map(() => {
+            if (onSuccess) onSuccess();
+            return actions.todoAddTodoItemToParentListResponseAction();
           })
         )
       )

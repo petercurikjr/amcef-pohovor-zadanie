@@ -17,6 +17,7 @@ export * from './lib/pipes/format-date.pipe';
 
 // utils
 export * from './lib/utils/core.container';
+export * from './lib/utils/custom-validators';
 
 // routes
 export * from './lib/routes/routes';

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable, from } from 'rxjs';
-import { GoogleAuthProvider, User, UserCredential } from '@angular/fire/auth';
+import { GoogleAuthProvider, UserCredential } from '@angular/fire/auth';
 import { ITodoList } from '../models/app.model';
 
 @Injectable({
@@ -31,8 +31,12 @@ export class AppService {
   }
 
   public createTodoList(todoList: ITodoList): Observable<void> {
+    return from(this.afs.doc(`todoee-todolists/${todoList.id}`).set(todoList));
+  }
+
+  public addTodoItemToParentList(parentList: ITodoList): Observable<void> {
     return from(
-      this.afs.doc(`todoee-todolists/${todoList.id}`).set(todoList)
-    ) as Observable<void>;
+      this.afs.doc(`todoee-todolists/${parentList.id}`).set(parentList)
+    );
   }
 }
