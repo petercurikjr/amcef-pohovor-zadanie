@@ -36,6 +36,6 @@ export class HomeCreateTodoListModalComponent extends CoreContainer {
       name: this.form.value.name,
       todos: [],
     };
-    this.facade.createTodoList(request, () => this.dialogRef.close());
+    this.facade.modifyTodoList(request, () => this.dialogRef.close());
   }
 }

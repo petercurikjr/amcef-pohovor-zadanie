@@ -31,16 +31,10 @@ export class AppFacade {
     this.store.dispatch(actions.todoFetchTodoListsRequestAction());
   }
 
-  createTodoList(todoList: ITodoList, onSuccess: () => void): void {
+  modifyTodoList(todoList: ITodoList, onSuccess?: () => void): void {
     this.store.dispatch(
-      actions.todoCreateTodoListRequestAction({ todoList, onSuccess })
-    );
-  }
-
-  addTodoItemToParentList(parentList: ITodoList, onSuccess: () => void): void {
-    this.store.dispatch(
-      actions.todoAddTodoItemToParentListRequestAction({
-        parentList,
+      actions.todoModifyTodoListRequestAction({
+        todoList,
         onSuccess,
       })
     );

@@ -49,28 +49,14 @@ export class AppEffects {
     )
   );
 
-  createTodoList$ = createEffect(() =>
+  modifyTodoList$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(actions.todoCreateTodoListRequestAction),
+      ofType(actions.todoModifyTodoListRequestAction),
       mergeMap(({ todoList, onSuccess }) =>
-        this.appService.createTodoList(todoList).pipe(
+        this.appService.modifyTodoList(todoList).pipe(
           map(() => {
             if (onSuccess) onSuccess();
-            return actions.todoCreateTodoListResponseAction();
-          })
-        )
-      )
-    )
-  );
-
-  addTodoItemToParentList$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(actions.todoAddTodoItemToParentListRequestAction),
-      mergeMap(({ parentList, onSuccess }) =>
-        this.appService.addTodoItemToParentList(parentList).pipe(
-          map(() => {
-            if (onSuccess) onSuccess();
-            return actions.todoAddTodoItemToParentListResponseAction();
+            return actions.todoModifyTodoListResponseAction();
           })
         )
       )

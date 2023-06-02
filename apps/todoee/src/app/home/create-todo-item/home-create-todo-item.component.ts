@@ -83,7 +83,7 @@ export class HomeCreateTodoItemComponent extends CoreContainer {
     const parentListCopy = cloneDeep(this.parentList);
     parentListCopy.todos.push(todoItem);
 
-    this.facade.addTodoItemToParentList(parentListCopy, () =>
+    this.facade.modifyTodoList(parentListCopy, () =>
       this.navigateTo(Routes.home.base)
     );
   }

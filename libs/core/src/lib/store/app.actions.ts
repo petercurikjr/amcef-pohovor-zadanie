@@ -31,20 +31,11 @@ export const todoFetchTodoListsResponseAction = createAction(
   props<{ todoLists: ITodoList[] }>()
 );
 
-export const todoCreateTodoListRequestAction = createAction(
-  '[TODO] create todo list request action',
-  props<{ todoList: ITodoList; onSuccess: () => void }>()
+export const todoModifyTodoListRequestAction = createAction(
+  '[TODO] modify todo list request action',
+  props<{ todoList: ITodoList; onSuccess?: () => void }>()
 );
 
-export const todoCreateTodoListResponseAction = createAction(
-  '[TODO] create todo list response action'
-);
-
-export const todoAddTodoItemToParentListRequestAction = createAction(
-  '[TODO] add todo item to parent list request action',
-  props<{ parentList: ITodoList; onSuccess: () => void }>()
-);
-
-export const todoAddTodoItemToParentListResponseAction = createAction(
-  '[TODO] add todo item to parent list response action'
+export const todoModifyTodoListResponseAction = createAction(
+  '[TODO] modify todo list response action'
 );

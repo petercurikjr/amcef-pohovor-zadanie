@@ -30,13 +30,7 @@ export class AppService {
     >;
   }
 
-  public createTodoList(todoList: ITodoList): Observable<void> {
+  public modifyTodoList(todoList: ITodoList): Observable<void> {
     return from(this.afs.doc(`todoee-todolists/${todoList.id}`).set(todoList));
-  }
-
-  public addTodoItemToParentList(parentList: ITodoList): Observable<void> {
-    return from(
-      this.afs.doc(`todoee-todolists/${parentList.id}`).set(parentList)
-    );
   }
 }
