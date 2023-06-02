@@ -21,11 +21,6 @@ export class HomeComponent extends CoreContainer implements OnInit {
   constructor() {
     super();
     this.subscriptions.add(
-      this.facade.getSignedInUser$.subscribe(
-        (user) => (this.signedInUser = user?.user)
-      )
-    );
-    this.subscriptions.add(
       this.facade.getTodoLists$.subscribe(
         (todoLists) => (this.todoLists = todoLists)
       )
@@ -33,7 +28,12 @@ export class HomeComponent extends CoreContainer implements OnInit {
   }
 
   ngOnInit(): void {
-    if (!this.todoLists) this.facade.fetchTodoLists();
+    this.subscriptions.add(
+      this.facade.getSignedInUser$.subscribe((user) => {
+        this.signedInUser = user?.user;
+        if (!this.todoLists) this.facade.fetchTodoLists(this.signedInUser);
+      })
+    );
   }
 
   signInWithGoogle(): void {

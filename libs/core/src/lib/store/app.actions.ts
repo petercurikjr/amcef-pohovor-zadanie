@@ -23,7 +23,8 @@ export const authSignOutWithGoogleAction = createAction(
 
 // todos
 export const todoFetchTodoListsRequestAction = createAction(
-  '[TODO] fetch todo lists request action'
+  '[TODO] fetch todo lists request action',
+  props<{ signedInUser: User }>()
 );
 
 export const todoFetchTodoListsResponseAction = createAction(

@@ -35,13 +35,13 @@ export class HomeTodoListComponent extends CoreContainer implements OnInit {
         break;
       case FilterType.ACTIVE:
         const active = this.unfilteredListCopy?.todos?.filter(
-          (item) => item.isCompleted
+          (item) => !item.isCompleted
         );
         this._list = { ...this.unfilteredListCopy, todos: active };
         break;
       case FilterType.COMPLETED:
         const completed = this.unfilteredListCopy?.todos?.filter(
-          (item) => !item.isCompleted
+          (item) => item.isCompleted
         );
         this._list = { ...this.unfilteredListCopy, todos: completed };
         break;

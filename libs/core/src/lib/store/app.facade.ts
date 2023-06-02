@@ -27,8 +27,10 @@ export class AppFacade {
   }
 
   // todos
-  fetchTodoLists(): void {
-    this.store.dispatch(actions.todoFetchTodoListsRequestAction());
+  fetchTodoLists(signedInUser: User): void {
+    this.store.dispatch(
+      actions.todoFetchTodoListsRequestAction({ signedInUser })
+    );
   }
 
   modifyTodoList(todoList: ITodoList, onSuccess?: () => void): void {

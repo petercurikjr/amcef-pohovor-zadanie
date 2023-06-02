@@ -37,9 +37,9 @@ export class AppEffects {
   fetchTodoLists$ = createEffect(() =>
     this.actions$.pipe(
       ofType(actions.todoFetchTodoListsRequestAction),
-      mergeMap(() =>
+      mergeMap(({ signedInUser }) =>
         this.appService
-          .fetchTodoLists()
+          .fetchTodoLists(signedInUser)
           .pipe(
             map((data) =>
               actions.todoFetchTodoListsResponseAction({ todoLists: data })

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable, from } from 'rxjs';
-import { GoogleAuthProvider, UserCredential } from '@angular/fire/auth';
+import { GoogleAuthProvider, User, UserCredential } from '@angular/fire/auth';
 import { ITodoList } from '../models/app.model';
 
 @Injectable({
@@ -24,10 +24,12 @@ export class AppService {
     this.angularFireAuth.signOut();
   }
 
-  public fetchTodoLists(): Observable<ITodoList[]> {
-    return this.afs.collection('todoee-todolists').valueChanges() as Observable<
-      ITodoList[]
-    >;
+  public fetchTodoLists(signedInUser: User): Observable<ITodoList[]> {
+    return this.afs
+      .collection('todoee-todolists', (ref) =>
+        ref.where('author', '==', signedInUser.uid)
+      )
+      .valueChanges() as Observable<ITodoList[]>;
   }
 
   public modifyTodoList(todoList: ITodoList): Observable<void> {

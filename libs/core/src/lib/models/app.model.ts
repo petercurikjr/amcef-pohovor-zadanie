@@ -14,6 +14,7 @@ export enum DateFormat {
 export interface ITodoList {
   id: string;
   name: string;
+  author: string;
   todos: ITodoItem[];
 }
 

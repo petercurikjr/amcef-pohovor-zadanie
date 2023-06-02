@@ -25,9 +25,8 @@ export const appReducer = createReducer(
     ...state,
     googleSignedInUser: { ...state.googleSignedInUser, user: user },
   })),
-  on(actions.authSignOutWithGoogleAction, (state) => ({
-    ...state,
-    googleSignedInUser: undefined,
+  on(actions.authSignOutWithGoogleAction, (_) => ({
+    ...initialState,
   })),
 
   // todos
