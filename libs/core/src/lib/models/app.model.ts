@@ -1,3 +1,8 @@
+export interface AppEntity {
+  id: string;
+  name: string;
+}
+
 export enum DateFormat {
   FULL = 'dd.MM.yyyy, HH:mm',
   DATE = 'dd.MM.yyyy',

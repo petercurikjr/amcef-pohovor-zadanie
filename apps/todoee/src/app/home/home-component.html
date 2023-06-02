@@ -1,2 +1,38 @@
-<p class="font-appTitle text-h2">TODOee</p>
-<p>Všetko, čo treba urobiť na jednom mieste</p>
+<div class="flex justify-between">
+  <div class="flex flex-col">
+    <p class="font-title text-h2">TODOee</p>
+    <p>Všetko, čo treba urobiť na jednom mieste</p>
+  </div>
+
+  <div
+    class="flex flex-col items-end"
+    *ngIf="signedInUser; else signInTemplate"
+  >
+    <div class="flex items-center gap-2">
+      <img
+        class="rounded-full w-10 h-10 border-2 border-secondary-lightGrey shadow-md"
+        [src]="signedInUser.photoURL"
+        referrerpolicy="no-referrer"
+      />
+      <p>{{ signedInUser.displayName }}</p>
+    </div>
+    <ui-button
+      [buttonType]="UiButtonType.SMALL"
+      buttonText="Odhlásiť sa"
+      (buttonClick)="signOut()"
+    ></ui-button>
+  </div>
+</div>
+
+<ng-template #signInTemplate>
+  <div
+    class="h-full w-full justify-center flex flex-col gap-4 items-center text-center absolute top-0 left-0"
+  >
+    <p class="lg:text-h3 md:text-h4">Momentálne nie si prihlásený/á.</p>
+    <ui-button
+      [buttonType]="UiButtonType.AUTH"
+      buttonText="Prihlás sa cez Google"
+      (buttonClick)="signInWithGoogle()"
+    ></ui-button>
+  </div>
+</ng-template>
