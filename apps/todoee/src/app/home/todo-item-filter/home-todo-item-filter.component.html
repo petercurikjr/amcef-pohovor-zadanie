@@ -1,0 +1,32 @@
+<div class="flex gap-2">
+  <ui-button
+    buttonText="Všetky"
+    [basicButtonType]="
+      selectedFilter === FilterType.ALL
+        ? UiBasicButtonType.FILL
+        : UiBasicButtonType.OUTLINE
+    "
+    [buttonColor]="UiButtonColor.BLACK"
+    (buttonClick)="onSelectedFilter(FilterType.ALL)"
+  ></ui-button>
+  <ui-button
+    buttonText="Aktívne"
+    [basicButtonType]="
+      selectedFilter === FilterType.ACTIVE
+        ? UiBasicButtonType.FILL
+        : UiBasicButtonType.OUTLINE
+    "
+    [buttonColor]="UiButtonColor.BLACK"
+    (buttonClick)="onSelectedFilter(FilterType.ACTIVE)"
+  ></ui-button>
+  <ui-button
+    buttonText="Dokončené"
+    [basicButtonType]="
+      selectedFilter === FilterType.COMPLETED
+        ? UiBasicButtonType.FILL
+        : UiBasicButtonType.OUTLINE
+    "
+    [buttonColor]="UiButtonColor.BLACK"
+    (buttonClick)="onSelectedFilter(FilterType.COMPLETED)"
+  ></ui-button>
+</div>

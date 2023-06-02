@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeCreateTodoItemComponent } from './home/create-todo-item/home-create-todo-item.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeTodoListComponent } from './home/todo-list/home-todo-list.component';
+import { HomeTodoItemFilterComponent } from './home/todo-item-filter/home-todo-item-filter.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HomeTodoListComponent } from './home/todo-list/home-todo-list.component
     HomeCreateTodoListModalComponent,
     HomeCreateTodoItemComponent,
     HomeTodoListComponent,
+    HomeTodoItemFilterComponent,
   ],
   imports: [
     BrowserModule,

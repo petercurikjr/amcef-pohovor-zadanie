@@ -4,6 +4,9 @@
     class="flex items-center justify-between w-full"
   >
     <p class="text-h4">Tvoje TODO listy</p>
+    <todoee-home-todo-item-filter
+      (filterSelectionChange)="applyFilter($event)"
+    ></todoee-home-todo-item-filter>
     <ui-button
       buttonText="Vytvoriť TODO list"
       (buttonClick)="createTodoList()"
@@ -13,6 +16,7 @@
     class="w-full max-w-4xl"
     *ngFor="let list of todoLists"
     [list]="list"
+    [filter]="selectedFilter"
   ></todoee-home-todo-list>
 </div>
 

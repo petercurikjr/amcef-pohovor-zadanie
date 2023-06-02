@@ -25,3 +25,9 @@ export interface ITodoItem {
   isCompleted: boolean;
   due: Timestamp;
 }
+
+export enum FilterType {
+  ALL,
+  ACTIVE,
+  COMPLETED,
+}

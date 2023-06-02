@@ -10,3 +10,7 @@ export interface ICreateTodoItemForm {
   dueDate: FormControl<Date>;
   dueTime: FormControl<string>;
 }
+
+export interface ISearchForm {
+  search: FormControl<string>;
+}
