@@ -5,12 +5,12 @@ import { HomeCreateTodoItemComponent } from './home/create-todo-item/home-create
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: '**', redirectTo: 'home' },
   {
     path: 'home',
     component: HomeComponent,
   },
   { path: 'home/create-todo-item', component: HomeCreateTodoItemComponent },
+  { path: '**', redirectTo: 'home' },
 ];
 
 @NgModule({

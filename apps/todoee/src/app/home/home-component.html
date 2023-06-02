@@ -1,31 +1,6 @@
 <div
-  class="flex justify-between border-b border-secondary-lightGrey shadow-lg rounded-lg p-8"
->
-  <div class="flex flex-col">
-    <p class="font-title text-h2">TODOee</p>
-    <p>Všetko, čo treba urobiť na jednom mieste</p>
-  </div>
-
-  <div class="flex flex-col items-end" *ngIf="signedInUser">
-    <div class="flex items-center gap-2">
-      <img
-        class="rounded-full w-10 h-10 border-2 border-secondary-lightGrey shadow-md"
-        [src]="signedInUser.photoURL"
-        referrerpolicy="no-referrer"
-      />
-      <p>{{ signedInUser.displayName }}</p>
-    </div>
-    <ui-button
-      [buttonType]="UiButtonType.SMALL"
-      buttonText="Odhlásiť sa"
-      (buttonClick)="signOut()"
-    ></ui-button>
-  </div>
-</div>
-
-<div
   *ngIf="signedInUser; else signInTemplate"
-  class="flex flex-col gap-4 p-8 items-center justify-center"
+  class="flex flex-col gap-4 items-center justify-center"
 >
   <div
     *ngIf="todoLists; else loadingTemplate"

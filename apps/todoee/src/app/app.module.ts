@@ -11,10 +11,12 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { HomeCreateTodoListModalComponent } from './home/create-todo-list-modal/home-create-todo-list-modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeCreateTodoItemComponent } from './home/create-todo-item/home-create-todo-item.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
     HomeComponent,
     HomeCreateTodoListModalComponent,
     HomeCreateTodoItemComponent,

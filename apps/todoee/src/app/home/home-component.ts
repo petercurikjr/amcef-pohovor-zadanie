@@ -40,10 +40,6 @@ export class HomeComponent extends CoreContainer implements OnInit {
     this.facade.signInWithGoogle();
   }
 
-  signOut(): void {
-    this.facade.signOutWithGoogle();
-  }
-
   createTodoList(): void {
     this.md.open(HomeCreateTodoListModalComponent);
   }
