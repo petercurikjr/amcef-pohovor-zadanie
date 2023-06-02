@@ -24,5 +24,6 @@ export interface ITodoItem {
   listId: string;
   name: string;
   description: string;
+  isCompleted: boolean;
   due: Timestamp;
 }

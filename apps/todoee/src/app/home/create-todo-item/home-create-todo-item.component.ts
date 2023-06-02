@@ -76,6 +76,7 @@ export class HomeCreateTodoItemComponent extends CoreContainer {
       listId: this.parentList.id,
       name: this.form.value.name,
       description: this.form.value.description,
+      isCompleted: false,
       due: Timestamp.fromDate(this.form.value.dueDate),
     };
 

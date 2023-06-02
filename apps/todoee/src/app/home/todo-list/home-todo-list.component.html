@@ -1,0 +1,45 @@
+<div class="border border-secondary-lightGrey rounded-md shadow-md p-4 px-8">
+  <div
+    [ngClass]="{ 'bg-secondary-lightGrey': list.todos.length > 0 }"
+    class="flex items-center justify-between -m-4 -mx-8 p-4 px-8"
+  >
+    <p class="font-medium font-title text-h3">{{ list.name }}</p>
+
+    <div class="flex gap-2 items-center">
+      <span>{{ list.todos.length }} TODO položiek</span>
+      <ui-button
+        [icon]="Icons.add.circleDark"
+        (click)="createTodoItem(list.id)"
+        [buttonType]="UiButtonType.ICON"
+      ></ui-button>
+    </div>
+  </div>
+  <ng-container *ngIf="list.todos.length > 0">
+    <div
+      class="grid grid-cols-[4fr_3fr_1.5fr_0.5fr_0.5fr] items-center mb-2 mt-8"
+    >
+      <p class="text-h4 font-medium">Názov</p>
+      <p class="text-h4 font-medium">Popis</p>
+      <p class="text-h4 font-medium">Deadline</p>
+    </div>
+    <div *ngFor="let item of list.todos">
+      <div class="grid grid-cols-[4fr_3fr_1.5fr_0.5fr_0.5fr] items-center mb-4">
+        <span>{{ item.name }}</span>
+        <span>{{ item.description }}</span>
+        <span>{{ item.due | formatDate }}</span>
+        <ui-button
+          class="justify-self-end"
+          [icon]="item.isCompleted ? Icons.check.filled : Icons.check.blank"
+          (buttonClick)="toggleCompleted(item.id)"
+          [buttonType]="UiButtonType.ICON"
+        ></ui-button>
+        <ui-button
+          class="justify-self-end"
+          [icon]="Icons.bin.pink"
+          (buttonClick)="deleteTodoItem(item.id)"
+          [buttonType]="UiButtonType.ICON"
+        ></ui-button>
+      </div>
+    </div>
+  </ng-container>
+</div>

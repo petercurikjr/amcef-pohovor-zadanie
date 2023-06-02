@@ -11,7 +11,6 @@ import { HomeCreateTodoListModalComponent } from './create-todo-list-modal/home-
 })
 export class HomeComponent extends CoreContainer implements OnInit {
   readonly UiButtonType = UiButtonType;
-  readonly Icons = Icons;
 
   private readonly md: MatDialog = inject(MatDialog);
 
@@ -42,9 +41,5 @@ export class HomeComponent extends CoreContainer implements OnInit {
 
   createTodoList(): void {
     this.md.open(HomeCreateTodoListModalComponent);
-  }
-
-  createTodo(listId: string): void {
-    this.navigateTo(Routes.home.createTodoItem, { listId: listId });
   }
 }

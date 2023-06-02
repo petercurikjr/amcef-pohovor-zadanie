@@ -61,4 +61,8 @@ export const Icons = {
     dark: path + 'comment-fill.svg',
     light: path + 'comment.svg',
   },
+  check: {
+    blank: path + 'checkbox-blank-circle-line.svg',
+    filled: path + 'checkbox-circle-fill.svg',
+  },
 };

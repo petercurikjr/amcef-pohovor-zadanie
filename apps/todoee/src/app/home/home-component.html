@@ -1,7 +1,4 @@
-<div
-  *ngIf="signedInUser; else signInTemplate"
-  class="flex flex-col gap-4 items-center justify-center"
->
+<div *ngIf="signedInUser; else signInTemplate" class="flex flex-col gap-4">
   <div
     *ngIf="todoLists; else loadingTemplate"
     class="flex items-center justify-between w-full"
@@ -12,17 +9,11 @@
       (buttonClick)="createTodoList()"
     ></ui-button>
   </div>
-  <div
-    class="border border-secondary-lightGrey rounded-md shadow-md p-4"
+  <todoee-home-todo-list
+    class="w-full max-w-4xl"
     *ngFor="let list of todoLists"
-  >
-    <ui-icon
-      class="cursor-pointer"
-      [path]="Icons.add.circleDark"
-      (click)="createTodo(list.id)"
-    ></ui-icon>
-    <p class="font-medium">{{ list.name }}</p>
-  </div>
+    [list]="list"
+  ></todoee-home-todo-list>
 </div>
 
 <ng-template #signInTemplate>
