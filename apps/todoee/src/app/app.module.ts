@@ -8,9 +8,11 @@ import { UiModule } from '@todoee/ui';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
+import { HomeCreateTodolistModalComponent } from './home/create-todolist-modal/home-create-todolist-modal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, HomeCreateTodolistModalComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -19,6 +21,7 @@ import { AngularFireModule } from '@angular/fire/compat';
     UiModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [],

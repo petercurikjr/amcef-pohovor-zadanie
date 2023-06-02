@@ -7,3 +7,7 @@ export const selectSignedInUser = createSelector(
   appState,
   (state) => state?.googleSignedInUser
 );
+export const selectTodoLists = createSelector(
+  appState,
+  (state) => state?.todoLists
+);

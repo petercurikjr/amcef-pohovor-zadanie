@@ -1,6 +1,8 @@
 import { createAction, props } from '@ngrx/store';
 import { User, UserCredential } from '@angular/fire/auth/firebase';
+import { ITodoList } from '../models/app.model';
 
+// auth
 export const authSignInWithGoogleRequestAction = createAction(
   '[AUTH] sign in with google request action'
 );
@@ -17,4 +19,23 @@ export const authGoogleAuthStateChangedAction = createAction(
 
 export const authSignOutWithGoogleAction = createAction(
   '[AUTH] sign out with google action'
+);
+
+// todos
+export const todoFetchTodoListsRequestAction = createAction(
+  '[TODO] fetch todo lists request action'
+);
+
+export const todoFetchTodoListsResponseAction = createAction(
+  '[TODO] fetch todo lists response action',
+  props<{ todoLists: ITodoList[] }>()
+);
+
+export const todoCreateTodoListRequestAction = createAction(
+  '[TODO] create todo list request action',
+  props<{ todoList: ITodoList; onSuccess: () => void }>()
+);
+
+export const todoCreateTodoListResponseAction = createAction(
+  '[TODO] create todo list response action'
 );

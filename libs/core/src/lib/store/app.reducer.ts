@@ -2,10 +2,11 @@ import { createReducer, on } from '@ngrx/store';
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { UserCredential } from '@angular/fire/auth/firebase';
 import * as actions from './app.actions';
-import { AppEntity } from '../models/app.model';
+import { AppEntity, ITodoList } from '../models/app.model';
 
 export interface AppState extends EntityState<AppEntity> {
   googleSignedInUser?: UserCredential;
+  todoLists?: ITodoList[];
 }
 
 export const appAdadpter: EntityAdapter<AppEntity> =
@@ -14,6 +15,8 @@ export const initialState: AppState = appAdadpter.getInitialState({});
 
 export const appReducer = createReducer(
   initialState,
+
+  // auth
   on(actions.authSignInWithGoogleResponseAction, (state, { user }) => ({
     ...state,
     googleSignedInUser: user,
@@ -25,5 +28,11 @@ export const appReducer = createReducer(
   on(actions.authSignOutWithGoogleAction, (state) => ({
     ...state,
     googleSignedInUser: undefined,
+  })),
+
+  // todos
+  on(actions.todoFetchTodoListsResponseAction, (state, { todoLists }) => ({
+    ...state,
+    todoLists: todoLists,
   }))
 );

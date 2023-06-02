@@ -1,0 +1,20 @@
+<ui-modal title="Vytvoriť TODO list">
+  <form [formGroup]="form">
+    <ui-input formControlName="name" label="Názov zoznamu"></ui-input>
+    <div class="flex gap-2 mb-2">
+      <ui-button
+        buttonText="Vytvoriť"
+        [buttonColor]="UiButtonColor.BLACK"
+        (buttonClick)="createTodoList()"
+      ></ui-button>
+      <ui-button
+        buttonText="Zrušiť"
+        [buttonColor]="UiButtonColor.BLACK"
+        [basicButtonType]="UiBasicButtonType.OUTLINE"
+        (buttonClick)="dialogRef.close()"
+      ></ui-button>
+    </div>
+  </form>
+
+  <ui-loading *ngIf="isLoading"></ui-loading>
+</ui-modal>

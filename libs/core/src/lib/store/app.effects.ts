@@ -8,6 +8,7 @@ import { map, mergeMap, take } from 'rxjs';
 export class AppEffects {
   constructor(private actions$: Actions, private appService: AppService) {}
 
+  // auth
   signInWithGoogle$ = createEffect(() =>
     this.actions$.pipe(
       ofType(actions.authSignInWithGoogleRequestAction),
@@ -30,5 +31,35 @@ export class AppEffects {
         map(() => this.appService.signOutWithGoogle())
       ),
     { dispatch: false }
+  );
+
+  // todos
+  fetchTodoLists$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(actions.todoFetchTodoListsRequestAction),
+      mergeMap(() =>
+        this.appService
+          .fetchTodoLists()
+          .pipe(
+            map((data) =>
+              actions.todoFetchTodoListsResponseAction({ todoLists: data })
+            )
+          )
+      )
+    )
+  );
+
+  createTodoList$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(actions.todoCreateTodoListRequestAction),
+      mergeMap(({ todoList, onSuccess }) =>
+        this.appService.createTodoList(todoList).pipe(
+          map(() => {
+            if (onSuccess) onSuccess();
+            return actions.todoCreateTodoListResponseAction();
+          })
+        )
+      )
+    )
   );
 }

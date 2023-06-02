@@ -4,6 +4,7 @@ export * from './lib/store/ngrx.module';
 
 // models
 export * from './lib/models/app.model';
+export * from './lib/models/form.model';
 
 // facades
 export * from './lib/store/app.facade';
