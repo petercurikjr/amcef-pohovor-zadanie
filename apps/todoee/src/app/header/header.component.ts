@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CoreContainer } from '@todoee/core';
+import { CoreContainer, Routes } from '@todoee/core';
 import { UiButtonType } from '@todoee/ui';
 import { User } from 'firebase/auth';
 
@@ -9,6 +9,7 @@ import { User } from 'firebase/auth';
 })
 export class HeaderComponent extends CoreContainer {
   readonly UiButtonType = UiButtonType;
+  readonly Routes = Routes;
 
   signedInUser: User;
 
