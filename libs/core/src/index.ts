@@ -9,9 +9,6 @@ export * from './lib/models/form.model';
 // facades
 export * from './lib/store/app.facade';
 
-// directives
-export * from './lib/directives/hidden-for.directive';
-
 // pipes
 export * from './lib/pipes/format-date.pipe';
 

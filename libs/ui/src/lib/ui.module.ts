@@ -9,7 +9,6 @@ import { UiDatepickerComponent } from './components/ui-datepicker/ui-datepicker.
 import { AngularMaterialModule } from './angular-material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UiTimepickerComponent } from './components/ui-timepicker/ui-timepicker.component';
-import { UiToggleComponent } from './components/ui-toggle/ui-toggle.component';
 import { UiModalComponent } from './components/ui-modal/ui-modal.component';
 
 @NgModule({
@@ -27,7 +26,6 @@ import { UiModalComponent } from './components/ui-modal/ui-modal.component';
     UiInputComponent,
     UiDatepickerComponent,
     UiTimepickerComponent,
-    UiToggleComponent,
     UiModalComponent,
   ],
   exports: [
@@ -37,7 +35,6 @@ import { UiModalComponent } from './components/ui-modal/ui-modal.component';
     UiInputComponent,
     UiDatepickerComponent,
     UiTimepickerComponent,
-    UiToggleComponent,
     UiModalComponent,
   ],
 })
